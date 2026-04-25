@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Vineet Kumar | Biotechnology & Nanotechnology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC80;
+    --gold-dim: #8A6E2E;
+    --navy: #0D1B2A;
+    --navy-mid: #152233;
+    --navy-light: #1E3148;
+    --slate: #8DA3B8;
+    --slate-light: #B8CCD9;
+    --white: #F4F0E8;
+    --text-muted: #6B8299;
+    --accent: #4FC3A1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--slate-light);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: -50px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(79,195,161,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .hero-name span { color: var(--gold); }
+
+  .hero-title {
+    font-size: 1.05rem;
+    color: var(--slate-light);
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  .hero-inst {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag {
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid var(--slate);
+    color: var(--slate-light);
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---- HERO STATS ---- */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-ring {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  .stats-ring::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+
+  .stats-center {
+    text-align: center;
+    z-index: 1;
+  }
+
+  .stats-center .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stats-center .big-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .stat-bubble {
+    position: absolute;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.75rem 1.1rem;
+    text-align: center;
+    min-width: 90px;
+  }
+
+  .stat-bubble .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    display: block;
+    font-weight: 400;
+  }
+
+  .stat-bubble .lbl {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .sb-tl { top: 10px; left: -20px; }
+  .sb-tr { top: 10px; right: -20px; }
+  .sb-bl { bottom: 10px; left: -20px; }
+  .sb-br { bottom: 10px; right: -20px; }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.2);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 3rem;
+    line-height: 1.25;
+  }
+
+  /* ---- ABOUT ---- */
+  #about { background: var(--navy-mid); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--slate-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.97rem;
+  }
+
+  .milestones { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .milestone {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .milestone-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gold);
+    min-width: 40px;
+    padding-top: 3px;
+  }
+
+  .milestone-content {
+    border-left: 1px solid rgba(201,168,76,0.2);
+    padding-left: 1.2rem;
+  }
+
+  .milestone-title {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+  .milestone-detail {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ---- RESEARCH ---- */
+  #research { background: var(--navy); }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .research-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .research-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-3px);
+  }
+
+  .rc-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .rc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+
+  .rc-desc {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    line-height: 1.65;
+  }
+
+  /* ---- PUBLICATIONS ---- */
+  #publications { background: var(--navy-mid); }
+
+  .pub-filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    border: 1px solid rgba(201,168,76,0.25);
+    background: transparent;
+    color: var(--slate-light);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.45rem 1.2rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .pub-item {
+    background: rgba(21,34,51,0.5);
+    border: 1px solid rgba(141,163,184,0.1);
+    padding: 1.5rem 1.8rem;
+    transition: border-color 0.2s;
+    display: none;
+  }
+  .pub-item.visible { display: block; }
+  .pub-item:hover { border-color: rgba(201,168,76,0.25); }
+
+  .pub-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .pub-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .pub-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .pub-tag {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .pub-tag.if {
+    background: rgba(79,195,161,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(79,195,161,0.2);
+  }
+  .pub-tag.year {
+    background: rgba(201,168,76,0.08);
+    color: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .pub-tag.type {
+    background: rgba(141,163,184,0.08);
+    color: var(--text-muted);
+    border: 1px solid rgba(141,163,184,0.15);
+  }
+
+  .show-more-wrap { text-align: center; margin-top: 2rem; }
+
+  /* ---- BOOKS ---- */
+  #books { background: var(--navy); }
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .book-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 1.8rem;
+    border-top: 3px solid var(--gold);
+    transition: transform 0.2s;
+  }
+  .book-card:hover { transform: translateY(-3px); }
+  .book-publisher {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .book-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ---- STUDENTS ---- */
+  #students { background: var(--navy-mid); }
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .student-card {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    background: rgba(21,34,51,0.5);
+    border: 1px solid rgba(141,163,184,0.08);
+    padding: 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .student-card:hover { border-color: rgba(201,168,76,0.2); }
+  .student-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: rgba(201,168,76,0.25);
+    min-width: 28px;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .student-name { font-weight: 500; font-size: 0.9rem; color: var(--white); margin-bottom: 0.3rem; }
+  .student-thesis { font-size: 0.8rem; color: var(--slate-light); line-height: 1.5; margin-bottom: 0.4rem; }
+  .student-date { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--gold); }
+
+  /* ---- AWARDS ---- */
+  #awards { background: var(--navy); }
+  .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+  .award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.4rem 1.8rem;
+    border: 1px solid rgba(201,168,76,0.08);
+    background: var(--navy-mid);
+    transition: border-color 0.2s;
+  }
+  .award-item:hover { border-color: rgba(201,168,76,0.3); }
+  .award-icon { color: var(--gold); font-size: 1.2rem; margin-top: 2px; }
+  .award-text {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    line-height: 1.6;
+  }
+  .award-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+
+  /* ---- CONTACT ---- */
+  #contact { background: var(--navy-mid); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+  .contact-label {
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+  .contact-value {
+    font-size: 0.9rem;
+    color: var(--white);
+  }
+  .contact-value a { color: var(--gold-light); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+
+  .metrics-box {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+  }
+  .metrics-title {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .metric {
+    text-align: center;
+    padding: 1.2rem;
+    background: rgba(13,27,42,0.5);
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .metric-lbl {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: #080F16;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 5rem 2rem 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 2rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
+    .footer-links { display: none; }
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-title { animation-delay: 0.3s; }
+  .hero-inst { animation-delay: 0.35s; }
+  .hero-tags { animation-delay: 0.4s; }
+  .hero-ctas { animation-delay: 0.5s; }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .ring-outer {
+    animation: spinSlow 40s linear infinite;
+  }
+
+  /* Hexagon decorator */
+  .hex-bg {
+    position: absolute;
+    opacity: 0.03;
+    right: -80px;
+    top: 15%;
+    width: 500px;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Prof. Vineet Kumar</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#students">PhD Students</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Professor · Biotechnology</div>
+    <h1 class="hero-name">Vineet<br><span>Kumar</span></h1>
+    <p class="hero-title">Department of Biotechnology · School of Bioengineering & Biosciences</p>
+    <p class="hero-inst">Lovely Professional University, Jalandhar, Punjab, India</p>
+    <div class="hero-tags">
+      <span class="tag">Nanotechnology</span>
+      <span class="tag">Nanomedicine</span>
+      <span class="tag">Biosensors</span>
+      <span class="tag">Green Synthesis</span>
+      <span class="tag">Drug Delivery</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#publications" class="btn-primary">View Publications</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <svg class="hex-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200 10 L380 110 L380 290 L200 390 L20 290 L20 110 Z" stroke="white" stroke-width="1"/>
+      <path d="M200 50 L350 135 L350 265 L200 350 L50 265 L50 135 Z" stroke="white" stroke-width="1"/>
+      <path d="M200 90 L320 160 L320 240 L200 310 L80 240 L80 160 Z" stroke="white" stroke-width="1"/>
+    </svg>
+    <div class="stats-ring">
+      <svg class="ring-outer" viewBox="0 0 340 340" style="position:absolute;inset:0;width:100%;height:100%;" fill="none">
+        <circle cx="170" cy="170" r="160" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="6 14"/>
+      </svg>
+      <div class="stats-center">
+        <div class="big-num">86+</div>
+        <div class="big-label">Publications</div>
+      </div>
+      <div class="stat-bubble sb-tl">
+        <span class="num">4115</span>
+        <span class="lbl">Citations</span>
+      </div>
+      <div class="stat-bubble sb-tr">
+        <span class="num">26</span>
+        <span class="lbl">h-index</span>
+      </div>
+      <div class="stat-bubble sb-bl">
+        <span class="num">53</span>
+        <span class="lbl">i10-index</span>
+      </div>
+      <div class="stat-bubble sb-br">
+        <span class="num">6</span>
+        <span class="lbl">PhD Guided</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Pioneering Nanotechnology for a Sustainable World</h2>
+      <p>Prof. Vineet Kumar is a Professor in the Department of Biotechnology at Lovely Professional University, Punjab, India. With over 17 years of research and teaching experience, his work bridges the intersection of nanotechnology, biotechnology, and environmental science.</p>
+      <p>His research focuses on green synthesis of nanoparticles using plant extracts, biosensors for food and environmental monitoring, nanomedicine and drug delivery systems, and sustainable environmental remediation using nanomaterials. He has published more than 86 research and review articles with a total impact factor exceeding 200.</p>
+      <p>Beyond the laboratory, Prof. Kumar has mentored 6 PhD students, co-authored 17+ books and edited volumes with leading publishers including Springer, Elsevier, and CRC Press, and serves on editorial boards of prestigious journals including <em>Scientific Reports</em> (SpringerNature).</p>
+      <div style="margin-top: 2rem; display: flex; gap: 2rem;">
+        <div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--gold);">17+</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase;">Years Experience</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--gold);">200+</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase;">Total Impact Factor</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--gold);">17+</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase;">Edited Books</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Timeline</div>
+      <div class="milestones">
+        <div class="milestone">
+          <span class="milestone-year">2024</span>
+          <div class="milestone-content">
+            <div class="milestone-title">Professor, LPU</div>
+            <div class="milestone-detail">Dept. of Biotechnology, School of Bioengineering & Biosciences</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2021</span>
+          <div class="milestone-content">
+            <div class="milestone-title">Associate Professor, LPU</div>
+            <div class="milestone-detail">Promoted to Associate Professor — Dec 2021 to Apr 2024</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2017</span>
+          <div class="milestone-content">
+            <div class="milestone-title">Assistant Professor, LPU</div>
+            <div class="milestone-detail">Faculty of Technology and Sciences — Jul 2017 to Nov 2021</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2016</span>
+          <div class="milestone-content">
+            <div class="milestone-title">Assistant Professor, DAV University</div>
+            <div class="milestone-detail">Nanotechnology, Molecular Biology, Cell Biology</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2013</span>
+          <div class="milestone-content">
+            <div class="milestone-title">UGC-DSK Postdoctoral Fellow</div>
+            <div class="milestone-detail">Panjab University, Chandigarh — PLGA nanoparticles for anticancer delivery</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2013</span>
+          <div class="milestone-content">
+            <div class="milestone-title">PhD in Biotechnology</div>
+            <div class="milestone-detail">GNDU Amritsar & CSIR-IHBT Palampur — Nanoparticles from plant extracts</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <span class="milestone-year">2005</span>
+          <div class="milestone-content">
+            <div class="milestone-title">M.Sc. Biochemistry</div>
+            <div class="milestone-detail">HNB Garhwal University, Uttarakhand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">Research Focus</div>
+  <h2 class="section-title">Areas of Expertise</h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Green Synthesis of Nanoparticles</div>
+      <p class="rc-desc">Synthesis of silver, gold, MgO, MnO₂ and other metallic nanoparticles using plant extracts. Characterization and biocompatibility assessment for biomedical and environmental applications.</p>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Nanomedicine & Drug Delivery</div>
+      <p class="rc-desc">Development of PLGA nanoparticles for anticancer biomolecule delivery, biosurfactant-coated nanoparticles, and lignocellulose-based nanomaterials for therapeutic applications.</p>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Nanosensors & Biosensors</div>
+      <p class="rc-desc">Electrochemical and optical sensing platforms for food safety, environmental pollutants (heavy metals, dyes, pesticides), and disease diagnostics including DNA-nanosensors.</p>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Environmental Remediation</div>
+      <p class="rc-desc">Photocatalytic degradation of azo dyes, heavy metal removal using lignocellulosic nanomaterials, and wastewater treatment using advanced nanocomposites.</p>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Plant Nanobiotechnology</div>
+      <p class="rc-desc">Nanopriming effects on plant growth, antioxidant potential, and stress tolerance. MgO, TiO₂-Al₂O₃-ZnFe₂O₄ nanocomposites for sustainable agriculture.</p>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⬡</div>
+      <div class="rc-title">Corrosion Science</div>
+      <p class="rc-desc">Green corrosion inhibitors from plant extracts for steel used in biomedical and petroleum industries. Molecular dynamic simulation and quantum chemical calculations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-label">Publications</div>
+  <h2 class="section-title">Selected Research Articles</h2>
+  <div class="pub-filters">
+    <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPubs('nano', this)">Nanotechnology</button>
+    <button class="filter-btn" onclick="filterPubs('plant', this)">Plant Science</button>
+    <button class="filter-btn" onclick="filterPubs('sensor', this)">Sensors</button>
+    <button class="filter-btn" onclick="filterPubs('env', this)">Environment</button>
+  </div>
+  <div class="pub-list" id="pub-list">
+
+    <div class="pub-item visible" data-cat="nano plant">
+      <div class="pub-title">Magnesium oxide nanoparticles improved biochemical and antioxidant parameters of radish to induce salt stress tolerance</div>
+      <div class="pub-meta">Gautam A., Kumar V., Guleria P. · Plant Nano Biology, 2025</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 7.7</span>
+        <span class="pub-tag year">2025</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item visible" data-cat="env nano">
+      <div class="pub-title">Greener exfoliation of MoS₂ nanosheets using sodium alginate as biosurfactant and its photocatalytic performance against azo dyes</div>
+      <div class="pub-meta">Kaur M., Kumar V.*, Singh K.* · Sustainable Chemistry for the Environment, 2025</div>
+      <div class="pub-tags">
+        <span class="pub-tag year">2025</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item visible" data-cat="env nano">
+      <div class="pub-title">Synthesis and application of natural clam shell derived adsorbents for removal of azo dyes from wastewater</div>
+      <div class="pub-meta">Kaur M. et al., Kumar V.*, Singh K.* · Cleaner Engineering and Technology, 2024</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 5.3</span>
+        <span class="pub-tag year">2024</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item visible" data-cat="nano">
+      <div class="pub-title">Green synthesis of silver nanoparticles using Penicillium camemberti and its biological applications</div>
+      <div class="pub-meta">Kaur M., Singh K.*, Kumar V.* · BioNanoScience, 2024</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 3.0</span>
+        <span class="pub-tag year">2024</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item visible" data-cat="plant nano">
+      <div class="pub-title">Nanopriming with magnesium oxide nanoparticles enhanced antioxidant potential and nutritional richness of radish leaves grown in field</div>
+      <div class="pub-meta">Gautam A. et al., Kumar V.*, Guleria P.* · Clean Technologies and Environmental Policy, 2024</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 4.2</span>
+        <span class="pub-tag year">2024</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item visible" data-cat="sensor nano">
+      <div class="pub-title">Application of DNA-nanosensor for environmental monitoring: Recent advances and perspectives</div>
+      <div class="pub-meta">Kumar V.*, Guleria P. · Current Pollution Reports, 2020</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 6.4</span>
+        <span class="pub-tag year">2020</span>
+        <span class="pub-tag type">Invited Review</span>
+      </div>
+    </div>
+
+    <div class="pub-item" data-cat="nano env">
+      <div class="pub-title">Nanosensors for food quality and safety assessment</div>
+      <div class="pub-meta">Kumar V.*, Guleria P., Mehta S.K. · Environmental Chemistry Letters, 2017</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 15.0</span>
+        <span class="pub-tag year">2017</span>
+        <span class="pub-tag type">Review</span>
+      </div>
+    </div>
+
+    <div class="pub-item" data-cat="nano plant">
+      <div class="pub-title">Gold nanoparticles exposure induces growth and yield enhancement in Arabidopsis thaliana</div>
+      <div class="pub-meta">Kumar V. et al. · Science of The Total Environment, 2013</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 8.2</span>
+        <span class="pub-tag year">2013</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+    <div class="pub-item" data-cat="nano">
+      <div class="pub-title">Plant-mediated synthesis of silver and gold nanoparticles and their applications</div>
+      <div class="pub-meta">Kumar V., Yadav S.K. · Journal of Chemical Technology and Biotechnology, 2009</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 2.8</span>
+        <span class="pub-tag year">2009</span>
+        <span class="pub-tag type">Research Article · Top 10 Most Cited 2010–11</span>
+      </div>
+    </div>
+
+    <div class="pub-item" data-cat="sensor nano">
+      <div class="pub-title">Synthesis of biosurfactant coated magnesium oxide nanoparticles for methylene blue removal and selective Pb²⁺ sensing</div>
+      <div class="pub-meta">Kumar V.*, Jain A., Wadhawan S., Mehta S.K. · IET Nanobiotechnology, 2018</div>
+      <div class="pub-tags">
+        <span class="pub-tag if">IF: 3.8</span>
+        <span class="pub-tag year">2018</span>
+        <span class="pub-tag type">Research Article</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="show-more-wrap">
+    <a href="https://scholar.google.co.in/citations?user=LVCTa9QAAAAJ&hl=en" target="_blank" class="btn-outline">View All 86+ Publications on Google Scholar</a>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="section-label">Books & Edited Volumes</div>
+  <h2 class="section-title">Scholarly Books</h2>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-publisher">Elsevier · Academic Press</div>
+      <div class="book-title">Plant Small RNA in Food Crops</div>
+      <div class="book-year">2023 · 636 pages · ISBN: 978-0-323-91722-3</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">Bentham Science</div>
+      <div class="book-title">Carbonaceous Quantum Dots: Synthesis and Applications</div>
+      <div class="book-year">2023 · 225 pages · ISBN: 9789815136272</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">Elsevier</div>
+      <div class="book-title">Handbook on Functionalized Nanomaterials: EHS & Toxicological Uncertainties</div>
+      <div class="book-year">2021 · 404 pages · ISBN: 9780128224151</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">Springer International</div>
+      <div class="book-title">Nanotoxicology and Nanoecotoxicology Vol. 1 & 2</div>
+      <div class="book-year">2021 · ECSW Series Vols. 59 & 67</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">CRC Press · Taylor & Francis</div>
+      <div class="book-title">Functionalized Nanomaterials I & II</div>
+      <div class="book-year">2021 · 318 + 320 pages</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">Elsevier · Academic Press</div>
+      <div class="book-title">Plant Small RNA Biogenesis, Regulation and Application</div>
+      <div class="book-year">2020 · 660 pages · ISBN: 9780128171127</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">CRC Press · Taylor & Francis</div>
+      <div class="book-title">Environmental Toxicity of Nanomaterials</div>
+      <div class="book-year">2018 · 523 pages · ISBN: 978-0-8153-6652-2</div>
+    </div>
+    <div class="book-card">
+      <div class="book-publisher">CRC Press · Taylor & Francis</div>
+      <div class="book-title">Nanotoxicology: Toxicity Evaluation, Risk Assessment and Management</div>
+      <div class="book-year">2018 · 684 pages · ISBN: 978-1-4987-9941-6</div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENTS -->
+<section id="students">
+  <div class="section-label">PhD Supervision</div>
+  <h2 class="section-title">Doctoral Students Guided</h2>
+  <div class="students-grid">
+    <div class="student-card">
+      <div class="student-num">01</div>
+      <div>
+        <div class="student-name">Assima Firdoos</div>
+        <div class="student-thesis">Implications of Hydrogen Sulfide During Sodium Chloride Stress in Some Vegetable Crops</div>
+        <div class="student-date">Submitted: May 2025 · LPU</div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="student-num">02</div>
+      <div>
+        <div class="student-name">Mandeep Kaur</div>
+        <div class="student-thesis">Biosurfactant Mediated Nano-Heterostructures of 2D Layered MoS₂ for Azo Dyes Degradation and Antibiotic Drug Sensing</div>
+        <div class="student-date">Submitted: Dec 2024 · LPU</div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="student-num">03</div>
+      <div>
+        <div class="student-name">Ajay Kumar</div>
+        <div class="student-thesis">Preparation of Lignocellulose Based Nanomaterial and its Application in Heavy Metal Removal from Wastewater</div>
+        <div class="student-date">Awarded: May 2024 · LPU</div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="student-num">04</div>
+      <div>
+        <div class="student-name">Rabiu Garba Ahmad</div>
+        <div class="student-thesis">Construction of Nanobiosensor for the Detection of Colletotrichum Falcatum in Sugarcane</div>
+        <div class="student-date">Awarded: Sep 2024 · LPU</div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="student-num">05</div>
+      <div>
+        <div class="student-name">Pooja Sharma</div>
+        <div class="student-thesis">Green Synthesis of Metallic Nanoparticles and their Effect on Corrosion of Steel Used in Biomedical Devices</div>
+        <div class="student-date">Awarded: Apr 2022 · LPU</div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="student-num">06</div>
+      <div>
+        <div class="student-name">Nishant Bhardwaj</div>
+        <div class="student-thesis">Corrosion Inhibition Properties and Adsorption Behaviour of Phytochemically Rich Plant Waste Extracts for Steel in Petroleum Industry</div>
+        <div class="student-date">Awarded: Nov 2021 · LPU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-label">Recognition</div>
+  <h2 class="section-title">Fellowships & Awards</h2>
+  <div class="awards-list">
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2021 · 2022 · 2023</div>
+        <div class="award-text">Researcher Appreciation Award — Lovely Professional University</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2017</div>
+        <div class="award-text">Best Poster Award — International Conference on Innovative Strategies for Sustainable Water Management, McGill University & LPU, Jalandhar</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2015</div>
+        <div class="award-text">Best Poster Award — 5th Asia-Oceania Conference on Green and Sustainable Chemistry, TERI New Delhi, organized by Royal Society of Chemistry</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2013</div>
+        <div class="award-text">Dr. DSK Postdoctoral Fellowship (PDF) — University Grants Commission (UGC), Government of India</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2010</div>
+        <div class="award-text">Senior Research Fellowship (SRF) — CSIR, Government of India, "Trans Disciplinary Research" category</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">★</div>
+      <div>
+        <div class="award-year">2006</div>
+        <div class="award-text">Qualified Lectureship — National Eligibility Test (LS-NET) in Life Sciences, conducted by CSIR-UGC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:vineetkumar22@gmail.com">vineetkumar22@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">☏</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 - 9569562937</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">⌖</div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-value">Department of Biotechnology, School of Bioengineering &amp; Biosciences, Lovely Professional University, Jalandhar – Punjab, India 144411</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">↗</div>
+        <div>
+          <div class="contact-label">Profiles</div>
+          <div class="contact-value">
+            <a href="https://scholar.google.co.in/citations?user=LVCTa9QAAAAJ&hl=en" target="_blank">Google Scholar</a> ·
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=55695230200" target="_blank">Scopus</a> ·
+            <a href="https://sites.google.com/view/vineetkumar22/home" target="_blank">Personal Website</a> ·
+            <a href="https://linkedin.com/in/vineet-kumar-39653a32" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✦</div>
+        <div>
+          <div class="contact-label">ORCID</div>
+          <div class="contact-value"><a href="https://orcid.org/0000-0002-8772-679X" target="_blank">0000-0002-8772-679X</a></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="metrics-box">
+        <div class="metrics-title">Research Metrics (Google Scholar · Nov 2024)</div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-num">4115</span>
+            <div class="metric-lbl">Total Citations</div>
+          </div>
+          <div class="metric">
+            <span class="metric-num">26</span>
+            <div class="metric-lbl">h-index</div>
+          </div>
+          <div class="metric">
+            <span class="metric-num">53</span>
+            <div class="metric-lbl">i10-index</div>
+          </div>
+          <div class="metric">
+            <span class="metric-num">86+</span>
+            <div class="metric-lbl">Publications</div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid rgba(201,168,76,0.1);">
+          <div style="font-size:0.72rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.8rem;">Identifier IDs</div>
+          <div style="font-size:0.8rem; color:var(--slate-light); line-height:2;">
+            Scopus ID: 55695230200<br>
+            Web of Science ID: B-1221-2013<br>
+            ResearcherID: F-2923-2015<br>
+            Publons: 1359278
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Prof. Vineet Kumar</div>
+  <div class="footer-copy">© 2025 · Lovely Professional University, Punjab, India</div>
+  <div class="footer-links">
+    <a href="https://scholar.google.co.in/citations?user=LVCTa9QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <a href="https://orcid.org/0000-0002-8772-679X" target="_blank">ORCID</a>
+    <a href="https://linkedin.com/in/vineet-kumar-39653a32" target="_blank">LinkedIn</a>
+    <a href="https://sites.google.com/view/vineetkumar22/home" target="_blank">Personal Site</a>
+  </div>
+</footer>
+
+<script>
+function filterPubs(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat.includes(cat)) {
+      item.classList.add('visible');
+    } else {
+      item.classList.remove('visible');
+    }
+  });
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.research-card, .pub-item, .book-card, .student-card, .award-item, .milestone').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
